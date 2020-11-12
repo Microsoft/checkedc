@@ -22,6 +22,13 @@
 #pragma CHECKED_SCOPE push
 #pragma CHECKED_SCOPE ON
 
+#ifdef __APPLE__
+// Seems not to be a thing for Mac
+#define __THROW
+#define __CONST_SOCKADDR_ARG const struct sockaddr *
+#define __SOCKADDR_ARG struct sockaddr *__restrict
+#endif
+
 extern int socketpair (int __domain, int __type, int __protocol, 
     int __fds[2] : itype(int _Checked[2])) __THROW;
 
