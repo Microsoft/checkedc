@@ -23,8 +23,7 @@ typedef void (tss_dtor_t)(void *);
 struct timespec;
 #else
 
-#if defined __has_include_next
-#if __has_include_next(<threads.h>)
+#if defined __has_include_next && __has_include_next(<threads.h>)
 
 #ifdef __checkedc
 #pragma CHECKED_SCOPE push
@@ -37,8 +36,9 @@ struct timespec;
 #pragma CHECKED_SCOPE pop
 #endif
 
-#endif // has threads.h
-#endif // defined __has_include_next
+#else // doesn't have threads.h
+#error "cannot include 'threads_checked.h' because this system does not have the original 'threads.h'"
+#endif // threads.h
 #endif // _CHECKEDC_MOCKUP_THREADS
 
 

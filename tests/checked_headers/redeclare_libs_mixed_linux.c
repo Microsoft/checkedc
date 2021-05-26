@@ -31,3 +31,27 @@
 #include <arpa/inet_checked.h>
 // CHECK_MIXED: inet_checked.h
 // CHECK_MIXED: #pragma CHECKED_SCOPE on
+
+#include <grp.h>
+// CHECK_MIXED-NOT: grp_checked.h
+// CHECK_MIXED-NOT: #pragma CHECKED_SCOPE on
+
+#include <netdb_checked.h>
+// CHECK_MIXED: netdb_checked.h
+// CHECK_MIXED: #pragma CHECKED_SCOPE on
+
+#include <poll.h>
+// CHECK_MIXED-NOT: poll_checked.h
+// CHECK_MIXED-NOT: #pragma CHECKED_SCOPE on
+
+#include <pwd_checked.h>
+// CHECK_MIXED: pwd_checked.h
+// CHECK_MIXED: #pragma CHECKED_SCOPE on
+
+#include <syslog.h>
+// CHECK_MIXED-NOT: syslog_checked.h
+// CHECK_MIXED-NOT: #pragma CHECKED_SCOPE on
+
+#include <utime_checked.h>
+// CHECK_MIXED: utime_checked.h
+// CHECK_MIXED: #pragma CHECKED_SCOPE on

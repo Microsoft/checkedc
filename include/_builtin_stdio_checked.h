@@ -42,7 +42,7 @@ int __builtin___sprintf_chk(char * restrict buffer : itype(restrict _Nt_array_pt
 #if __has_builtin(__builtin___snprintf_chk) || defined(__GNUC__)
 // snprintf
 extern _Unchecked
-int __snprintf_chk(char * restrict buffer : count(maxlen),
+int __snprintf_chk(char * restrict buffer : itype(restrict _Nt_array_ptr<char>) count(maxlen == 0 ? 0 : maxlen-1),
                    size_t maxlen,
                    int flag,
                    size_t obj_size,
@@ -51,7 +51,7 @@ int __snprintf_chk(char * restrict buffer : count(maxlen),
                    ...);
 
 _Unchecked
-int __builtin___snprintf_chk(char * restrict buffer : count(maxlen),
+int __builtin___snprintf_chk(char * restrict buffer : itype(restrict _Nt_array_ptr<char>) count(maxlen == 0 ? 0 : maxlen-1),
                              size_t maxlen,
                              int flag,
                              size_t obj_size,
@@ -85,7 +85,7 @@ int __builtin___vsprintf_chk(char * restrict buffer : itype(restrict _Nt_array_p
 #if __has_builtin(__builtin___vsnprintf_chk) || defined(__GNUC__)
 // vsnprintf
 extern _Unchecked
-int __vsnprintf_chk(char * restrict buffer : count(maxlen),
+int __vsnprintf_chk(char * restrict buffer : itype(restrict _Nt_array_ptr<char>) count(maxlen == 0 ? 0 : maxlen-1),
                     size_t maxlen,
                     int flag,
                     size_t obj_size,
@@ -94,7 +94,7 @@ int __vsnprintf_chk(char * restrict buffer : count(maxlen),
                     va_list);
 
 _Unchecked
-int __builtin___vsnprintf_chk(char * restrict buffer : count(maxlen),
+int __builtin___vsnprintf_chk(char * restrict buffer : itype(restrict _Nt_array_ptr<char>) count(maxlen == 0 ? 0 : maxlen-1),
                               size_t maxlen,
                               int flag,
                               size_t obj_size,

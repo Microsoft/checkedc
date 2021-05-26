@@ -5,11 +5,10 @@
 /////////////////////////////////////////////////////////////////////////
 
 
-#if !defined __checkedc || defined NO_IMPLICIT_INCLUDE_CHECKED_HDRS
-
 // The Windows environment may not have arpa/inet.h
-#if defined __has_include_next
-#if __has_include_next(<arpa/inet.h>)
+#if defined __has_include_next && __has_include_next(<arpa/inet.h>)
+
+#if !defined __checkedc || defined NO_IMPLICIT_INCLUDE_CHECKED_HDRS
 
 #ifdef __checkedc
 #pragma CHECKED_SCOPE push
@@ -22,9 +21,10 @@
 #pragma CHECKED_SCOPE pop
 #endif
 
-#endif // has inet.h
-#endif // defined __has_include_next
-
 #else // checkedc && implicit include enabled
 #include <arpa/inet_checked.h>
+#endif
+
+#else // doesn't have arpa/inet.h
+#error "cannot include 'arpa/inet.h' because this system does not have the original header, even though Checked C provides a wrapper for it"
 #endif

@@ -40,3 +40,39 @@
 // CHECK_ENABLED: #pragma CHECKED_SCOPE on
 // CHECK_DISABLED: inet_checked.h
 // CHECK_DISABLED-NOT: #pragma CHECKED_SCOPE on
+
+#include <grp_checked.h>
+// CHECK_ENABLED: grp_checked.h
+// CHECK_ENABLED: #pragma CHECKED_SCOPE on
+// CHECK_DISABLED: grp_checked.h
+// CHECK_DISABLED-NOT: #pragma CHECKED_SCOPE on
+
+#include <netdb_checked.h>
+// CHECK_ENABLED: netdb_checked.h
+// CHECK_ENABLED: #pragma CHECKED_SCOPE on
+// CHECK_DISABLED: netdb_checked.h
+// CHECK_DISABLED-NOT: #pragma CHECKED_SCOPE on
+
+#include <poll_checked.h>
+// CHECK_ENABLED: poll_checked.h
+// CHECK_ENABLED: #pragma CHECKED_SCOPE on
+// CHECK_DISABLED: poll_checked.h
+// CHECK_DISABLED-NOT: #pragma CHECKED_SCOPE on
+
+#include <pwd_checked.h>
+// CHECK_ENABLED: pwd_checked.h
+// CHECK_ENABLED: #pragma CHECKED_SCOPE on
+// CHECK_DISABLED: pwd_checked.h
+// CHECK_DISABLED-NOT: #pragma CHECKED_SCOPE on
+
+#include <syslog_checked.h>
+// CHECK_ENABLED: syslog_checked.h
+// CHECK_ENABLED: #pragma CHECKED_SCOPE on
+// CHECK_DISABLED: syslog_checked.h
+// CHECK_DISABLED-NOT: #pragma CHECKED_SCOPE on
+
+#include <utime_checked.h>
+// CHECK_ENABLED: utime_checked.h
+// CHECK_ENABLED: #pragma CHECKED_SCOPE on
+// CHECK_DISABLED: utime_checked.h
+// CHECK_DISABLED-NOT: #pragma CHECKED_SCOPE on

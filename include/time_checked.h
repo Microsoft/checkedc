@@ -41,7 +41,7 @@ struct tm *gmtime(const time_t *timer : itype(_Ptr<const time_t>)) :
 struct tm *localtime(const time_t *timer : itype(_Ptr<const time_t>)) :
   itype(_Ptr<struct tm>);
 
-size_t strftime(char * restrict output : count(maxsize),
+size_t strftime(char * restrict output : itype(restrict _Nt_array_ptr<char>) count(maxsize),
                 size_t maxsize,
                 const char * restrict format : itype(restrict _Nt_array_ptr<const char>),
                 const struct tm * restrict timeptr :

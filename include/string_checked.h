@@ -121,6 +121,8 @@ int memcmp(const void *src1 : byte_count(n), const void *src2 : byte_count(n),
 
 int strcmp(const char *src1 : itype(_Nt_array_ptr<const char>),
            const char *src2 : itype(_Nt_array_ptr<const char>));
+int strcasecmp(const char *src1 : itype(_Nt_array_ptr<const char>),
+               const char *src2 : itype(_Nt_array_ptr<const char>));
 int strcoll(const char *src1 : itype(_Nt_array_ptr<const char>),
             const char *src2 : itype(_Nt_array_ptr<const  char>));
 
@@ -134,6 +136,9 @@ int strcoll(const char *src1 : itype(_Nt_array_ptr<const char>),
 int strncmp(const char *src : itype(_Nt_array_ptr<const char>),
             const char *s2 : itype(_Nt_array_ptr<const char>),
             size_t n);
+int strncasecmp(const char *src : itype(_Nt_array_ptr<const char>),
+                const char *s2 : itype(_Nt_array_ptr<const char>),
+                size_t n);
 
 size_t strxfrm(char * restrict dest : count(n),
                const char * restrict src :

@@ -12,12 +12,22 @@ set(files
   assert.h
   errno_checked.h
   errno.h
+  fcntl.h
+  fcntl_checked.h
   fenv_checked.h
   fenv.h
+  grp_checked.h
+  grp.h
   inttypes_checked.h
   inttypes_checked_internal.h
   math_checked.h
   math.h
+  netdb_checked.h
+  netdb.h
+  poll_checked.h
+  poll.h
+  pwd_checked.h
+  pwd.h
   signal_checked.h
   signal.h
   stdchecked.h
@@ -27,8 +37,12 @@ set(files
   stdlib.h
   string_checked.h
   string.h
+  syslog_checked.h
+  syslog.h
   threads_checked.h
   threads.h
+  utime_checked.h
+  utime.h
   time_checked.h
   time.h
   unistd_checked.h
@@ -47,6 +61,8 @@ set(posix_arpa_files
 set(posix_sys_files
   sys/socket_checked.h
   sys/socket.h
+  sys/stat_checked.h
+  sys/stat.h
 )
 
 # Hack - compute the CLANG version from the LLVM version.  The

@@ -65,13 +65,16 @@
 // CHECK_MIXED: time_checked.h
 // CHECK_MIXED: #pragma CHECKED_SCOPE on
 
+// Headers that are not in the C standard but are still present on Windows
+
+#include <fcntl.h>
+// CHECK_MIXED-NOT: fcntl_checked.h
+// CHECK_MIXED-NOT: #pragma CHECKED_SCOPE on
+
+#include <sys/stat_checked.h>
+// CHECK_MIXED: stat_checked.h
+// CHECK_MIXED: #pragma CHECKED_SCOPE on
+
 #include <checkedc_extensions.h>
 // CHECK_MIXED: checkedc_extensions.h
 // CHECK_MIXED: #pragma CHECKED_SCOPE on
-
-
-// Posix Headers
-// These header files may or may not be present in all environments.
-#include <unistd_checked.h>
-#include <sys/socket.h>
-#include <arpa/inet_checked.h>
