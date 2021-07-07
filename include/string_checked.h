@@ -60,28 +60,28 @@
 // - Fortifying,     No Macro:     we need the definition
 // - Not Fortifying, No Macro:     we need the definition
 
-#if _FORTIFY_SOURCE == 0 || !defined(memcpy)
+#if _FORTIFY_SOURCE == 0 || !defined(memcpy) || _FORTIFY_SOURCE == 2
 #undef memcpy
 _Itype_for_any(T) void *memcpy(void * restrict dest : itype(restrict _Array_ptr<T>) byte_count(n),
              const void * restrict src : itype(restrict _Array_ptr<const T>) byte_count(n),
              size_t n) : itype(_Array_ptr<T>) byte_count(n);
 #endif
 
-#if _FORTIFY_SOURCE == 0 || !defined(memmove)
+#if _FORTIFY_SOURCE == 0 || !defined(memmove) || _FORTIFY_SOURCE == 2
 #undef memmove
 void *memmove(void * dest : byte_count(n),
               const void * src : byte_count(n),
               size_t n) : bounds(dest, (_Array_ptr<char>)dest + n);
 #endif
 
-#if _FORTIFY_SOURCE == 0 || !defined(memset)
+#if _FORTIFY_SOURCE == 0 || !defined(memset) || _FORTIFY_SOURCE == 2
 #undef memset
 void *memset(void * dest : byte_count(n),
              int c,
              size_t n) : bounds(dest, (_Array_ptr<char>)dest + n);
 #endif
 
-#if _FORTIFY_SOURCE == 0 || !defined(strcpy)
+#if _FORTIFY_SOURCE == 0 || !defined(strcpy) || _FORTIFY_SOURCE == 2
 #undef strcpy
 // Dest is left unchecked intentionally. There is no bound on dest, so this
 // is always an unchecked function
@@ -90,14 +90,14 @@ char *strcpy(char * restrict dest,
               const char * restrict src : itype(restrict _Nt_array_ptr<const char>));
 #endif
 
-#if _FORTIFY_SOURCE == 0 || !defined(strncpy)
+#if _FORTIFY_SOURCE == 0 || !defined(strncpy) || _FORTIFY_SOURCE == 2
 #undef strncpy
 char *strncpy(char * restrict dest : count(n),
               const char * restrict src : count(n),
               size_t n) : bounds(dest, (_Array_ptr<char>)dest + n);
 #endif
 
-#if _FORTIFY_SOURCE == 0 || !defined(strcat)
+#if _FORTIFY_SOURCE == 0 || !defined(strcat) || _FORTIFY_SOURCE == 2
 #undef strcat
 // Dest is left unchecked intentionally. There is no bound on dest, so this
 // is always an unchecked function.
@@ -106,7 +106,7 @@ char *strcat(char * restrict dest,
              const char * restrict src : itype(restrict _Nt_array_ptr<const char>));
 #endif
 
-#if _FORTIFY_SOURCE == 0 || !defined(strncat)
+#if _FORTIFY_SOURCE == 0 || !defined(strncat) || _FORTIFY_SOURCE == 2
 #undef strncat
 // TODO: we have no way to express the bounds requirement on dest,
 // which needs to be count(strlen(dest) + n).
